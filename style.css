@@ -1,0 +1,657 @@
+:root {
+    --tomato: #d93825;
+    --tomato-dark: #a52016;
+    --cream: #fff7e8;
+    --paper: #f4e8cf;
+    --ink: #2b2019;
+    --green: #2f7d4a;
+    --yellow: #f3c94c;
+    --line: rgba(43, 32, 25, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--ink);
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(217, 56, 37, 0.07), transparent 24rem),
+        linear-gradient(rgba(80, 53, 31, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(80, 53, 31, 0.035) 1px, transparent 1px),
+        var(--cream);
+    background-size: auto, 28px 28px, 28px 28px, auto;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible {
+    outline: 3px solid #1d74b7;
+    outline-offset: 3px;
+}
+
+.site-header {
+    min-height: 74px;
+    padding: 14px max(24px, calc((100vw - 1400px) / 2));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(255, 247, 232, 0.88);
+    backdrop-filter: blur(12px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+    font-family: Georgia, serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    text-decoration: none;
+}
+
+.brand strong {
+    color: var(--tomato);
+}
+
+.brand-slice {
+    display: inline-block;
+    font-size: 1.7rem;
+    animation: slice-wiggle 2.5s ease-in-out infinite;
+}
+
+@keyframes slice-wiggle {
+    50% { transform: rotate(12deg) translateY(-3px); }
+}
+
+.site-header > p {
+    margin: 0;
+    color: #6e5a4d;
+    font-size: 0.9rem;
+}
+
+.hero {
+    width: min(1400px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 64px 0 42px;
+    text-align: center;
+}
+
+.kicker,
+.step {
+    margin: 0 0 8px;
+    color: var(--tomato);
+    font-size: 0.73rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+h1,
+h2 {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(3.2rem, 8vw, 7.8rem);
+    font-style: italic;
+    font-weight: 900;
+    line-height: 0.84;
+    letter-spacing: -0.055em;
+}
+
+.hero-copy {
+    max-width: 690px;
+    margin: 30px auto 0;
+    color: #746053;
+    font-size: 1.05rem;
+    line-height: 1.65;
+}
+
+.builder {
+    width: min(1400px, calc(100% - 48px));
+    margin: 0 auto 70px;
+    display: grid;
+    grid-template-columns: minmax(260px, 0.9fr) minmax(430px, 1.35fr) minmax(260px, 0.9fr);
+    gap: 20px;
+    align-items: stretch;
+}
+
+.ingredient-panel,
+.order-panel,
+.pizza-workbench {
+    border: 1px solid var(--line);
+    border-radius: 28px;
+}
+
+.ingredient-panel,
+.order-panel {
+    padding: 26px;
+    background: rgba(255, 255, 255, 0.62);
+    box-shadow: 0 18px 60px rgba(87, 55, 26, 0.08);
+}
+
+.panel-heading h2 {
+    margin: 0;
+    font-size: 1.7rem;
+}
+
+.panel-heading > p:last-child {
+    margin: 7px 0 22px;
+    color: #816b5d;
+    font-size: 0.88rem;
+}
+
+.ingredient-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.ingredient-button {
+    min-height: 85px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    color: var(--ink);
+    text-align: left;
+    background: #fffdf8;
+    transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.ingredient-button:hover {
+    transform: translateY(-3px) rotate(-1deg);
+    border-color: rgba(217, 56, 37, 0.42);
+    box-shadow: 0 10px 24px rgba(107, 60, 31, 0.11);
+}
+
+.ingredient-button[aria-pressed="true"] {
+    border-color: var(--tomato);
+    background: #fff0e6;
+    box-shadow: inset 0 0 0 2px rgba(217, 56, 37, 0.1);
+}
+
+.ingredient-icon {
+    font-size: 1.55rem;
+    filter: drop-shadow(0 4px 4px rgba(74, 43, 18, 0.16));
+}
+
+.ingredient-button strong,
+.ingredient-button small {
+    display: block;
+}
+
+.ingredient-button strong {
+    font-size: 0.84rem;
+}
+
+.ingredient-button small {
+    margin-top: 3px;
+    color: #8f7564;
+}
+
+.pizza-workbench {
+    min-height: 690px;
+    padding: 24px;
+    overflow: hidden;
+    position: relative;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(239, 221, 188, 0.78)),
+        var(--paper);
+    box-shadow: inset 0 0 70px rgba(92, 55, 20, 0.07);
+}
+
+.chef-bubble {
+    width: min(520px, 94%);
+    min-height: 78px;
+    margin: 0 auto;
+    padding: 13px 17px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 2px solid var(--ink);
+    border-radius: 20px 20px 20px 5px;
+    background: #fffdf8;
+    box-shadow: 6px 6px 0 var(--yellow);
+}
+
+.chef-avatar {
+    font-size: 2.1rem;
+}
+
+.chef-bubble p {
+    margin: 0;
+    line-height: 1.35;
+}
+
+.pizza-stage {
+    width: min(500px, 92%);
+    aspect-ratio: 1;
+    margin: 28px auto 6px;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.pizza-shadow {
+    position: absolute;
+    bottom: 7%;
+    width: 76%;
+    height: 17%;
+    border-radius: 50%;
+    background: rgba(69, 36, 16, 0.22);
+    filter: blur(18px);
+}
+
+.pizza {
+    width: 88%;
+    aspect-ratio: 1;
+    position: relative;
+    z-index: 2;
+    border-radius: 50%;
+    transform: rotate(-2deg);
+    filter: drop-shadow(0 22px 20px rgba(66, 35, 15, 0.23));
+    transition: transform 250ms ease;
+}
+
+.pizza.celebrate {
+    animation: pizza-celebrate 650ms ease;
+}
+
+@keyframes pizza-celebrate {
+    30% { transform: rotate(-8deg) scale(1.05); }
+    65% { transform: rotate(7deg) scale(1.08); }
+}
+
+.pizza-crust,
+.pizza-sauce,
+.pizza-cheese {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.pizza-crust {
+    padding: 9%;
+    background:
+        radial-gradient(circle at 32% 21%, #f7d085 0 2%, transparent 2.4%),
+        radial-gradient(circle at 74% 69%, #b97832 0 1.5%, transparent 2%),
+        radial-gradient(circle at 64% 18%, #c98c43 0 1.4%, transparent 2%),
+        linear-gradient(145deg, #f4c873, #c8863d);
+    box-shadow: inset -15px -18px 28px rgba(111, 53, 19, 0.25), inset 9px 10px 20px rgba(255, 243, 183, 0.35);
+}
+
+.pizza-sauce {
+    padding: 4%;
+    background: radial-gradient(circle, #d94528 62%, #a92019 100%);
+}
+
+.pizza-cheese {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.28) 0 2%, transparent 2.3%),
+        radial-gradient(circle at 68% 65%, #d9952c 0 1.7%, transparent 2.1%),
+        linear-gradient(145deg, #ffe79a, #efbd50);
+    box-shadow: inset -12px -12px 22px rgba(157, 94, 21, 0.16);
+}
+
+.ingredient-piece {
+    position: absolute;
+    z-index: 5;
+    display: block;
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--rotation, 0deg));
+    filter: drop-shadow(0 3px 2px rgba(63, 34, 13, 0.22));
+}
+
+.ingredient-piece.landed {
+    animation: topping-bounce 340ms ease;
+}
+
+@keyframes topping-bounce {
+    45% { scale: 1.35; }
+}
+
+.piece-cheese {
+    width: 32px;
+    height: 7px;
+    border-radius: 99px;
+    background: #fff0ad;
+    box-shadow: inset 0 -2px 0 #e9bc57;
+}
+
+.piece-pepperoni {
+    width: 38px;
+    height: 38px;
+    border: 3px solid #ac2a20;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 35% 35%, #ffd08c 0 7%, transparent 8%),
+        radial-gradient(circle at 68% 62%, #74170f 0 7%, transparent 8%),
+        #d84b36;
+}
+
+.piece-mushroom {
+    width: 39px;
+    height: 31px;
+    border-radius: 52% 52% 34% 34%;
+    background: linear-gradient(#e7cfad 0 58%, #9c7656 59% 72%, transparent 73%);
+}
+
+.piece-olive {
+    width: 27px;
+    height: 27px;
+    border: 7px solid #24231f;
+    border-radius: 50%;
+}
+
+.piece-basil {
+    width: 35px;
+    height: 24px;
+    border-radius: 90% 15% 90% 15%;
+    background: linear-gradient(145deg, #5eaf4e, #1d6b33);
+}
+
+.piece-pineapple {
+    width: 34px;
+    height: 28px;
+    clip-path: polygon(50% 0, 100% 28%, 82% 100%, 18% 100%, 0 28%);
+    background: linear-gradient(145deg, #ffe65b, #eaa52c);
+}
+
+.piece-jalapeno {
+    width: 34px;
+    height: 18px;
+    border: 5px solid #218642;
+    border-radius: 50%;
+    background: rgba(255, 237, 108, 0.28);
+}
+
+.ketchup-line {
+    position: absolute;
+    left: 16%;
+    width: 68%;
+    height: 9px;
+    z-index: 7;
+    border-radius: 99px;
+    background: #c8261a;
+    box-shadow: 0 2px 2px rgba(88, 24, 15, 0.28);
+    transform: rotate(var(--line-rotation)) scaleX(0);
+    transform-origin: left center;
+    animation: ketchup-draw 580ms cubic-bezier(.2, .8, .2, 1) forwards;
+}
+
+@keyframes ketchup-draw {
+    to { transform: rotate(var(--line-rotation)) scaleX(1); }
+}
+
+.flour-cloud {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    opacity: 0.16;
+    background: white;
+    filter: blur(14px);
+}
+
+.flour-one { left: 0; bottom: 14%; }
+.flour-two { right: 3%; top: 28%; width: 55px; height: 55px; }
+
+.pizza-name {
+    margin: 0;
+    color: var(--tomato);
+    font-family: Georgia, serif;
+    font-size: 1.65rem;
+    font-style: italic;
+    font-weight: 800;
+    text-align: center;
+}
+
+.pizza-subtitle {
+    margin: 5px 0 0;
+    color: #7a6557;
+    text-align: center;
+}
+
+.receipt {
+    margin-top: 22px;
+    padding: 20px;
+    border: 1px dashed rgba(43, 32, 25, 0.34);
+    background: #fffdf6;
+    box-shadow: 0 9px 26px rgba(77, 43, 21, 0.08);
+}
+
+.receipt-row,
+.receipt-total,
+#selectedList li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.receipt-row {
+    padding-bottom: 13px;
+    border-bottom: 1px solid var(--line);
+}
+
+#selectedList {
+    min-height: 128px;
+    margin: 0;
+    padding: 7px 0;
+    list-style: none;
+}
+
+#selectedList li {
+    padding: 8px 0;
+    color: #725e51;
+    font-size: 0.88rem;
+}
+
+#selectedList .empty-selection {
+    justify-content: center;
+    padding-top: 28px;
+    color: #a38f80;
+    font-style: italic;
+}
+
+.receipt-total {
+    padding-top: 14px;
+    border-top: 2px solid var(--ink);
+    font-size: 1.15rem;
+}
+
+.order-actions {
+    margin-top: 18px;
+    display: grid;
+    gap: 9px;
+}
+
+.order-button,
+.reset-button,
+.modal-card button {
+    min-height: 48px;
+    border-radius: 14px;
+    font-weight: 900;
+}
+
+.order-button,
+.modal-card button {
+    border: 0;
+    color: white;
+    background: var(--tomato);
+    box-shadow: 0 6px 0 var(--tomato-dark);
+}
+
+.order-button:hover,
+.modal-card button:hover {
+    transform: translateY(2px);
+    box-shadow: 0 4px 0 var(--tomato-dark);
+}
+
+.reset-button {
+    border: 1px solid var(--line);
+    color: var(--ink);
+    background: transparent;
+}
+
+.taste-meter {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    align-items: center;
+    color: #7c6759;
+    font-size: 0.8rem;
+}
+
+.taste-track {
+    height: 9px;
+    grid-column: span 2;
+    overflow: hidden;
+    border-radius: 99px;
+    background: #ead9bc;
+}
+
+.taste-track span {
+    width: 0;
+    height: 100%;
+    display: block;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--green), var(--yellow), var(--tomato));
+}
+
+footer {
+    padding: 28px 20px 50px;
+    color: #816b5d;
+    text-align: center;
+    font-size: 0.86rem;
+}
+
+.order-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: none;
+    place-items: center;
+    padding: 20px;
+    background: rgba(43, 25, 15, 0.64);
+    backdrop-filter: blur(8px);
+}
+
+.modal-card {
+    width: min(420px, 100%);
+    padding: 34px;
+    border: 4px solid var(--ink);
+    border-radius: 26px;
+    text-align: center;
+    background: var(--cream);
+    box-shadow: 12px 12px 0 var(--yellow);
+}
+
+.modal-pizza {
+    font-size: 4rem;
+    animation: modal-spin 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes modal-spin {
+    to { transform: rotate(15deg) scale(1.08); }
+}
+
+.modal-card h2 {
+    margin: 3px 0 8px;
+    font-size: 2.3rem;
+}
+
+.modal-card p:not(.step) {
+    color: #756053;
+    line-height: 1.5;
+}
+
+.modal-card button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+@media (max-width: 1120px) {
+    .builder {
+        grid-template-columns: 1fr 1.3fr;
+    }
+
+    .order-panel {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 760px) {
+    .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .hero {
+        padding-top: 45px;
+    }
+
+    .builder {
+        width: min(100% - 24px, 620px);
+        grid-template-columns: 1fr;
+    }
+
+    .order-panel {
+        grid-column: span 1;
+    }
+
+    .pizza-workbench {
+        min-height: 610px;
+        padding: 18px 10px;
+    }
+}
+
+@media (max-width: 440px) {
+    .ingredient-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pizza-workbench {
+        min-height: 560px;
+    }
+
+    .chef-bubble {
+        font-size: 0.86rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

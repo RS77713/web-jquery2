@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Build a funny animated pizza with flying ingredients.">
+    <title>Mamma Mia Pizza Lab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="#builder" aria-label="Mamma Mia Pizza Lab home">
+            <span class="brand-slice" aria-hidden="true">🍕</span>
+            <span>Mamma Mia! <strong>Pizza Lab</strong></span>
+        </a>
+        <p>One pizza. Your rules. Nonna is watching.</p>
+    </header>
+
+    <main>
+        <section class="hero" aria-labelledby="pageTitle">
+            <p class="kicker">the dangerously delicious constructor</p>
+            <h1 id="pageTitle">Build the pizza<br>your heart ordered.</h1>
+            <p class="hero-copy">
+                Choose ingredients and watch them fly onto the dough.
+                Every click makes the pizza happier and our fictional Italian chef louder.
+            </p>
+        </section>
+
+        <section class="builder" id="builder" aria-label="Pizza constructor">
+            <aside class="ingredient-panel">
+                <div class="panel-heading">
+                    <p class="step">Step 1</p>
+                    <h2>Choose ingredients</h2>
+                    <p>Click again to remove one. Culinary democracy!</p>
+                </div>
+
+                <div class="ingredient-grid">
+                    <button class="ingredient-button" type="button" data-ingredient="cheese" aria-pressed="false">
+                        <span class="ingredient-icon">🧀</span>
+                        <span><strong>Extra mozzarella</strong><small>€1.20</small></span>
+                    </button>
+                    <button class="ingredient-button" type="button" data-ingredient="pepperoni" aria-pressed="false">
+                        <span class="ingredient-icon">🍖</span>
+                        <span><strong>Pepperoni</strong><small>€1.60</small></span>
+                    </button>
+                    <button class="ingredient-button" type="button" data-ingredient="mushroom" aria-pressed="false">
+                        <span class="ingredient-icon">🍄</span>
+                        <span><strong>Mushrooms</strong><small>€1.10</small></span>
+                    </button>
+                    <button class="ingredient-button" type="button" data-ingredient="olive" aria-pressed="false">
+                        <span class="ingredient-icon">🫒</span>
+                        <span><strong>Black olives</strong><small>€0.90</small></span>
+                    </button>
+                    <button class="ingredient-button" type="button" data-ingredient="basil" aria-pressed="false">
+                        <span class="ingredient-icon">🌿</span>
+                        <span><strong>Fresh basil</strong><small>€0.70</small></span>
+                    </button>
+                    <button class="ingredient-button" type="button" data-ingredient="pineapple" aria-pressed="false">
+                        <span class="ingredient-icon">🍍</span>
+                        <span><strong>Pineapple</strong><small>€1.30</small></span>
+                    </button>
+                    <button class="ingredient-button" type="button" data-ingredient="jalapeno" aria-pressed="false">
+                        <span class="ingredient-icon">🌶️</span>
+                        <span><strong>Jalapeño</strong><small>€0.80</small></span>
+                    </button>
+                    <button class="ingredient-button" type="button" data-ingredient="ketchup" aria-pressed="false">
+                        <span class="ingredient-icon">🥫</span>
+                        <span><strong>Ketchup zigzag</strong><small>€0.50</small></span>
+                    </button>
+                </div>
+            </aside>
+
+            <section class="pizza-workbench" aria-label="Your pizza">
+                <div class="chef-bubble" aria-live="polite">
+                    <span class="chef-avatar" aria-hidden="true">👨🏻‍🍳</span>
+                    <p><strong>Chef Luigi:</strong> <span id="chefPhrase">“Pick something, amico. The dough is getting lonely!”</span></p>
+                </div>
+
+                <div class="pizza-stage">
+                    <div class="pizza-shadow" aria-hidden="true"></div>
+                    <div class="pizza" id="pizza" aria-label="Pizza preview with no extra ingredients">
+                        <div class="pizza-crust">
+                            <div class="pizza-sauce">
+                                <div class="pizza-cheese" id="pizzaSurface"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flour-cloud flour-one" aria-hidden="true"></div>
+                    <div class="flour-cloud flour-two" aria-hidden="true"></div>
+                </div>
+
+                <p class="pizza-name" id="pizzaName">La Pizza Timida</p>
+                <p class="pizza-subtitle" id="pizzaSubtitle">A shy pizza waiting for personality.</p>
+            </section>
+
+            <aside class="order-panel">
+                <div class="panel-heading">
+                    <p class="step">Step 2</p>
+                    <h2>Your masterpiece</h2>
+                </div>
+
+                <div class="receipt">
+                    <div class="receipt-row base-row">
+                        <span>Classic pizza base</span>
+                        <strong>€8.90</strong>
+                    </div>
+                    <ul id="selectedList" aria-live="polite">
+                        <li class="empty-selection">No extras yet</li>
+                    </ul>
+                    <div class="receipt-total">
+                        <span>Total</span>
+                        <strong id="totalPrice">€8.90</strong>
+                    </div>
+                </div>
+
+                <div class="order-actions">
+                    <button class="order-button" id="orderButton" type="button">Ring the dinner bell</button>
+                    <button class="reset-button" id="resetButton" type="button">Start over</button>
+                </div>
+
+                <div class="taste-meter">
+                    <span>Topping chaos</span>
+                    <div class="taste-track"><span id="tasteFill"></span></div>
+                    <strong id="toppingCount">0 / 8</strong>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made with dough, code and absolutely no respect for quiet kitchens.</p>
+    </footer>
+
+    <div class="order-modal" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-card">
+            <div class="modal-pizza" aria-hidden="true">🍕</div>
+            <p class="step">Order simulation</p>
+            <h2 id="modalTitle">Bellissimo!</h2>
+            <p id="modalMessage">Your pizza has impressed the fictional kitchen.</p>
+            <button type="button" id="closeModal">Continue cooking</button>
+        </div>
+    </div>
+
+    <script src="assets/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
