@@ -564,6 +564,94 @@ h1 {
     box-shadow: 3px 2px 0 -1px #b94b3f;
 }
 
+.piece-garlic {
+    width: 25px;
+    height: 34px;
+    border: 1px solid #d2b986;
+    border-radius: 70% 30% 62% 38%;
+    background: linear-gradient(135deg, #fffce4, #e8d29c);
+    box-shadow: inset -4px -3px 5px rgba(151, 113, 55, .25);
+}
+
+.piece-arugula {
+    width: 42px;
+    height: 18px;
+    border-radius: 70% 20% 70% 20%;
+    background:
+        linear-gradient(90deg, transparent 47%, #b8df88 48% 52%, transparent 53%),
+        linear-gradient(145deg, #74b93f, #276f34);
+    clip-path: polygon(0 45%, 13% 17%, 30% 30%, 43% 0, 57% 27%, 78% 11%, 100% 50%, 79% 88%, 58% 72%, 42% 100%, 28% 70%, 9% 84%);
+}
+
+.piece-egg {
+    width: 92px;
+    height: 76px;
+    border-radius: 48% 52% 42% 58%;
+    background:
+        radial-gradient(circle at 52% 48%, #f6b914 0 20%, #d98b08 21% 26%, transparent 27%),
+        radial-gradient(ellipse, #fffdf0 0 64%, #e9e2c8 66% 70%, transparent 72%);
+    filter: drop-shadow(0 4px 3px rgba(74, 43, 18, .25));
+}
+
+.piece-broccoli {
+    width: 39px;
+    height: 38px;
+    border-radius: 50% 50% 35% 35%;
+    background:
+        radial-gradient(circle at 22% 28%, #3e9b3d 0 22%, transparent 24%),
+        radial-gradient(circle at 50% 16%, #58ae43 0 27%, transparent 29%),
+        radial-gradient(circle at 78% 30%, #2f8736 0 23%, transparent 25%),
+        linear-gradient(90deg, transparent 38%, #89a84b 39% 62%, transparent 63%);
+}
+
+.piece-sausage {
+    width: 38px;
+    height: 38px;
+    border: 3px solid #8e3727;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 30% 32%, #ffe3bd 0 5%, transparent 6%),
+        radial-gradient(circle at 67% 68%, #752116 0 6%, transparent 7%),
+        radial-gradient(circle at 68% 27%, #f6c58e 0 4%, transparent 5%),
+        #bc5c43;
+    box-shadow: inset -5px -5px 7px rgba(89, 24, 15, .3);
+}
+
+.piece-anchovy {
+    width: 52px;
+    height: 19px;
+    border-radius: 70% 25% 25% 70%;
+    background:
+        radial-gradient(circle at 77% 42%, #151b1c 0 4%, transparent 5%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.3) 0 2px, transparent 3px 8px),
+        linear-gradient(#9aa9a5, #4e6666);
+    clip-path: polygon(0 50%, 16% 5%, 15% 31%, 76% 14%, 100% 50%, 76% 86%, 15% 69%, 16% 95%);
+}
+
+.piece-pepper {
+    width: 45px;
+    height: 24px;
+    border: 7px solid #e7432f;
+    border-left-color: #f1bd31;
+    border-right-color: #4c9d40;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: inset 0 0 3px rgba(55, 26, 10, .22);
+}
+
+.piece-truffle {
+    width: 34px;
+    height: 31px;
+    border: 2px solid #4b2c20;
+    border-radius: 46% 54% 48% 52%;
+    background:
+        radial-gradient(circle at 27% 32%, #b48d65 0 4%, transparent 5%),
+        radial-gradient(circle at 68% 61%, #2f1c16 0 5%, transparent 6%),
+        radial-gradient(circle at 69% 24%, #a77850 0 3%, transparent 4%),
+        #674532;
+    box-shadow: inset -5px -5px 7px rgba(34, 17, 11, .36);
+}
+
 .ketchup-line {
     position: absolute;
     left: 16%;

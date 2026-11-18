@@ -18,7 +18,15 @@ $(function () {
         tomato: { icon: "🍅", label: "Cherry tomatoes", price: 1.0, pieces: 6, phrase: "Pomodori! Tiny tomatoes with enormous main-character energy." },
         prosciutto: { icon: "🥓", label: "Prosciutto", price: 1.9, pieces: 5, phrase: "Prosciutto! Elegant ham wearing an invisible silk scarf." },
         corn: { icon: "🌽", label: "Sweet corn", price: 0.75, pieces: 10, phrase: "Sweet corn! Unexpected, cheerful and impossible to count." },
-        shrimp: { icon: "🍤", label: "Garlic shrimp", price: 2.2, pieces: 5, phrase: "Gamberetti! The seafood has entered with excellent posture." }
+        shrimp: { icon: "🍤", label: "Garlic shrimp", price: 2.2, pieces: 5, phrase: "Gamberetti! The seafood has entered with excellent posture." },
+        garlic: { icon: "🧄", label: "Roasted garlic", price: 0.65, pieces: 8, phrase: "Roasted garlic! Vampires have officially cancelled their reservation." },
+        arugula: { icon: "🥬", label: "Rocket leaves", price: 0.85, pieces: 7, phrase: "Rocket leaves! The salad escaped and landed somewhere much more exciting." },
+        egg: { icon: "🍳", label: "Sunny egg", price: 1.45, pieces: 1, phrase: "Un uovo! Breakfast and dinner have signed a delicious peace treaty." },
+        broccoli: { icon: "🥦", label: "Tiny broccoli", price: 1.05, pieces: 6, phrase: "Broccoli! Your pizza has eaten its vegetables and may now have dessert." },
+        sausage: { icon: "🌭", label: "Italian sausage", price: 1.75, pieces: 7, phrase: "Salsiccia! These sausage coins have arrived wearing imaginary moustaches." },
+        anchovy: { icon: "🐟", label: "Anchovies", price: 1.55, pieces: 6, phrase: "Anchovies! The Mediterranean just sent a salty little telegram." },
+        pepper: { icon: "🫑", label: "Bell pepper", price: 0.95, pieces: 8, phrase: "Peperoni colorati! Red, yellow and green confetti you can actually eat." },
+        truffle: { icon: "🟤", label: "Truffle slices", price: 2.6, pieces: 6, phrase: "Truffle! The pizza has suddenly started discussing expensive watches." }
     };
 
     const batches = {};
