@@ -31,43 +31,10 @@
                 <div class="panel-heading">
                     <p class="step">Step 1</p>
                     <h2>Choose ingredients</h2>
-                    <p>Click again to remove one. Culinary democracy!</p>
+                    <p>Add as many portions as your pizza can emotionally support.</p>
                 </div>
 
-                <div class="ingredient-grid">
-                    <button class="ingredient-button" type="button" data-ingredient="cheese" aria-pressed="false">
-                        <span class="ingredient-icon">🧀</span>
-                        <span><strong>Extra mozzarella</strong><small>€1.20</small></span>
-                    </button>
-                    <button class="ingredient-button" type="button" data-ingredient="pepperoni" aria-pressed="false">
-                        <span class="ingredient-icon">🍖</span>
-                        <span><strong>Pepperoni</strong><small>€1.60</small></span>
-                    </button>
-                    <button class="ingredient-button" type="button" data-ingredient="mushroom" aria-pressed="false">
-                        <span class="ingredient-icon">🍄</span>
-                        <span><strong>Mushrooms</strong><small>€1.10</small></span>
-                    </button>
-                    <button class="ingredient-button" type="button" data-ingredient="olive" aria-pressed="false">
-                        <span class="ingredient-icon">🫒</span>
-                        <span><strong>Black olives</strong><small>€0.90</small></span>
-                    </button>
-                    <button class="ingredient-button" type="button" data-ingredient="basil" aria-pressed="false">
-                        <span class="ingredient-icon">🌿</span>
-                        <span><strong>Fresh basil</strong><small>€0.70</small></span>
-                    </button>
-                    <button class="ingredient-button" type="button" data-ingredient="pineapple" aria-pressed="false">
-                        <span class="ingredient-icon">🍍</span>
-                        <span><strong>Pineapple</strong><small>€1.30</small></span>
-                    </button>
-                    <button class="ingredient-button" type="button" data-ingredient="jalapeno" aria-pressed="false">
-                        <span class="ingredient-icon">🌶️</span>
-                        <span><strong>Jalapeño</strong><small>€0.80</small></span>
-                    </button>
-                    <button class="ingredient-button" type="button" data-ingredient="ketchup" aria-pressed="false">
-                        <span class="ingredient-icon">🥫</span>
-                        <span><strong>Ketchup zigzag</strong><small>€0.50</small></span>
-                    </button>
-                </div>
+                <div class="ingredient-grid" id="ingredientGrid"></div>
             </aside>
 
             <section class="pizza-workbench" aria-label="Your pizza">
@@ -78,7 +45,7 @@
 
                 <div class="pizza-stage">
                     <div class="pizza-shadow" aria-hidden="true"></div>
-                    <div class="pizza" id="pizza" aria-label="Pizza preview with no extra ingredients">
+                    <div class="pizza dough-classic" id="pizza" aria-label="Pizza preview with no extra ingredients">
                         <div class="pizza-crust">
                             <div class="pizza-sauce">
                                 <div class="pizza-cheese" id="pizzaSurface"></div>
@@ -91,6 +58,7 @@
 
                 <p class="pizza-name" id="pizzaName">La Pizza Timida</p>
                 <p class="pizza-subtitle" id="pizzaSubtitle">A shy pizza waiting for personality.</p>
+                <p class="tilt-hint">Move your pointer across the pizza to inspect it in 3D.</p>
             </section>
 
             <aside class="order-panel">
@@ -99,10 +67,29 @@
                     <h2>Your masterpiece</h2>
                 </div>
 
+                <fieldset class="dough-selector">
+                    <legend>Choose the bread</legend>
+                    <label class="dough-option selected">
+                        <input type="radio" name="dough" value="classic" checked>
+                        <span class="dough-swatch classic-swatch" aria-hidden="true"></span>
+                        <span><strong>Classic Napoli</strong><small>€8.90</small></span>
+                    </label>
+                    <label class="dough-option">
+                        <input type="radio" name="dough" value="thin">
+                        <span class="dough-swatch thin-swatch" aria-hidden="true"></span>
+                        <span><strong>Thin &amp; crispy</strong><small>€9.40</small></span>
+                    </label>
+                    <label class="dough-option">
+                        <input type="radio" name="dough" value="deep">
+                        <span class="dough-swatch deep-swatch" aria-hidden="true"></span>
+                        <span><strong>Deep-pan cloud</strong><small>€10.40</small></span>
+                    </label>
+                </fieldset>
+
                 <div class="receipt">
                     <div class="receipt-row base-row">
-                        <span>Classic pizza base</span>
-                        <strong>€8.90</strong>
+                        <span id="baseLabel">Classic Napoli base</span>
+                        <strong id="basePrice">€8.90</strong>
                     </div>
                     <ul id="selectedList" aria-live="polite">
                         <li class="empty-selection">No extras yet</li>
@@ -115,13 +102,14 @@
 
                 <div class="order-actions">
                     <button class="order-button" id="orderButton" type="button">Ring the dinner bell</button>
-                    <button class="reset-button" id="resetButton" type="button">Start over</button>
+                    <button class="reset-button" id="clearToppingsButton" type="button">Remove all toppings</button>
+                    <button class="clear-button" id="clearEverythingButton" type="button">Clear everything</button>
                 </div>
 
                 <div class="taste-meter">
                     <span>Topping chaos</span>
                     <div class="taste-track"><span id="tasteFill"></span></div>
-                    <strong id="toppingCount">0 / 8</strong>
+                    <strong id="toppingCount">0 portions</strong>
                 </div>
             </aside>
         </section>
